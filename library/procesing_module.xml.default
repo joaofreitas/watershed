@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Watershed processing module configuration XML -->
+<!DOCTYPE processing_module SYSTEM "processing_module.dtd">
+<processing_module>
+	<global
+		name = "module_name"
+		library = "path_to_my_module/module_name.so"
+		type = "stream"		
+		instances = "2"
+		arguments = "-i param1 -o param2">	
+	</global>
+	<inputs>
+		<input>
+			name = "input1"
+			query = "query1"
+			policy = "round_robin"
+			policy_function_file = "none"
+		</input>
+		<input>
+			name = "input2"
+			query = "query2"
+			policy = "labeled_stream"
+			policy_function_file = "function_file.so"
+		</input>
+	</inputs>
+	<output>
+		name = "output"
+		structure = "out.dtd"
+	</output>
+	<demands>
+		<demand name = "resource1"/>
+		<demand name = "resource2"/>
+	</demands>
+</processing_module>

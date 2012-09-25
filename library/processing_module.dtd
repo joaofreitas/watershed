@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DTD for Watershed Processing Module Configuration -->
+<!ELEMENT processing_module (global, inputs?, output?, demands?)>
+	<!ELEMENT global (#PCDATA)>
+		<!ATTLIST global
+			name CDATA #REQUIRED
+			library CDATA #REQUIRED
+			instances CDATA #IMPLIED
+			arguments CDATA #IMPLIED>
+	<!ELEMENT inputs (input+)>
+		<!ELEMENT input (#PCDATA)>
+			<!ATTLIST input
+				name CDATA #REQUIRED
+				query CDATA "none"
+				policy (broadcast|round_robin|labeled) "round_robin"
+				policy_function_file CDATA "none">
+	<!ELEMENT output (#PCDATA)>
+		<!ATTLIST output
+			name CDATA #REQUIRED
+			structure CDATA #REQUIRED>
+	<!ELEMENT demands (demand+)>
+		<!ELEMENT demand (#PCDATA)>
+			<!ATTLIST demand
+				name CDATA #REQUIRED>

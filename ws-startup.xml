@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Watershed ws-startup configuration XML -->
+<!DOCTYPE config SYSTEM "ws-startup.dtd">
+<config>
+	<global>
+		<ompi 
+			prefix = "/opt/openmpi-1.5.4">
+		</ompi>
+		<server
+			home = "/home/rodrigo/libwatershed"
+			running_dir = "/var/tmp/rsilva">
+		</server>
+		<database>
+		</database>
+		<processing_module>
+		</processing_module>
+	</global>
+	<hostdec>
+		<host name = "dijkstra"
+			database_server = "true">
+			<resource name = "common"/>
+		</host>
+	</hostdec>
+</config>

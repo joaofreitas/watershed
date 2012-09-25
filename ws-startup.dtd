@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DTD for Watershed Startup Configuration -->
+<!ELEMENT config (global, hostdec)>
+	<!ELEMENT global (ompi, server, database, processing_module)>
+		<!ELEMENT ompi (#PCDATA)>
+			<!ATTLIST ompi prefix CDATA #REQUIRED>
+		<!ELEMENT server (#PCDATA)>
+			<!ATTLIST server
+				name CDATA #FIXED "ws-manager"
+				home CDATA #REQUIRED
+				running_dir CDATA #REQUIRED>
+		<!ELEMENT database (#PCDATA)>
+			<!ATTLIST database
+				exe_name CDATA #FIXED "ws-stream"
+				arguments CDATA #FIXED "-i arg1 -o arg2">
+		<!ELEMENT processing_module (#PCDATA)>
+			<!ATTLIST processing_module
+				exe_name CDATA #FIXED "ws-module">
+	<!ELEMENT hostdec (host+)>
+		<!ELEMENT host (resource+)>
+			<!ATTLIST host
+				name CDATA #REQUIRED
+				database_server (true|false) "false">
+			<!ELEMENT resource (#PCDATA)>
+				<!ATTLIST resource
+					name CDATA #REQUIRED>
